@@ -1,275 +1,232 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>J’RÉNOV — Électricité & Aménagement intérieur</title>
-
-  <!-- SEO -->
-  <meta name="description" content="Électricité générale & aménagement intérieur. Dépannages 7j/7, placo, éclairage, rénovations. Devis gratuit." />
-  <meta property="og:title" content="J’RÉNOV — Électricité & Aménagement intérieur" />
-  <meta property="og:description" content="Tableaux, prises, éclairage, cloisons, faux-plafonds. Travaux soignés, délais respectés." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/logo-jd-jrenov.png" />
-  <meta name="theme-color" content="#0f172a" />
-  <!-- Remplace par ton code Search Console -->
-  <meta name="google-site-verification" content="PASTE_SEARCH_CONSOLE_CODE_HERE" />
-
-  <!-- Favicons -->
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-  <link rel="manifest" href="manifest.webmanifest">
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JD J'RÉNOV — Électricité & Aménagement intérieur</title>
+  <meta name="description" content="Travaux d’électricité, aménagement intérieur et rénovation. Interventions soignées, respect des délais et des normes NF C 15-100." />
+  <link rel="icon" href="assets/favicon-32x32.png" type="image/png" />
   <style>
-    :root{--ink:#0f172a;--muted:#64748b;--brand:#2563eb;--card:#ffffff}
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:#f8fafc}
-    a{color:var(--brand);text-decoration:none}
-    img{max-width:100%;height:auto;display:block}
-    .container{max-width:1150px;margin:0 auto;padding:0 20px}
+    :root {
+      --fond: #0b0b0b;
+      --texte: #e0e0e0;
+      --accent: #d4af37;
+    }
 
-    header{position:sticky;top:0;z-index:50;backdrop-filter:saturate(180%) blur(8px);background:rgba(255,255,255,.85);border-bottom:1px solid #e5e7eb}
-    .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-    .logo{display:flex;align-items:center;gap:12px}
-    .logo img{width:36px;height:36px;border-radius:8px;object-fit:cover}
-    .btn{display:inline-block;padding:12px 18px;border-radius:14px;font-weight:700;background:var(--brand);color:#fff;border:2px solid var(--brand);transition:.2s}
-    .btn:hover{filter:brightness(.95);transform:translateY(-1px)}
-    .btn.alt{background:transparent;color:var(--brand)}
+    body {
+      font-family: "Inter", sans-serif;
+      margin: 0;
+      background-color: var(--fond);
+      color: var(--texte);
+      line-height: 1.6;
+    }
 
-    .hero{padding:72px 0 32px;background:linear-gradient(180deg,#ffffff,#f1f5f9)}
-    .hero-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
-    .hero h1{font-size:clamp(28px,4vw,48px);line-height:1.08;margin:0 0 10px}
-    .muted{color:var(--muted)}
-    .card{background:#fff;border:1px solid #e5e7eb;border-radius:18px;padding:22px;box-shadow:0 1px 0 rgba(15,23,42,.04)}
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: url("assets/noBgColor.png") center / 600px auto no-repeat fixed;
+      opacity: 0.06;
+      filter: brightness(1.2) contrast(1.1);
+      pointer-events: none;
+      z-index: -1;
+    }
 
-    .sect{padding:56px 0}
-    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: rgba(0, 0, 0, 0.8);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+    }
 
-    /* Carrousel */
-    .gallery{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-    .slider{position:relative;border-radius:16px;overflow:hidden;background:#0b1220;min-height:260px}
-    .slide{position:absolute;inset:0;opacity:0;transition:opacity .6s ease}
-    .slide.active{opacity:1}
-    .dots{position:absolute;left:50%;transform:translateX(-50%);bottom:10px;display:flex;gap:6px;z-index:2}
-    .dot{width:8px;height:8px;border-radius:999px;background:rgba(255,255,255,.45)}
-    .dot.active{background:#fff}
-    .cap{position:absolute;left:0;right:0;bottom:0;padding:10px 12px;color:#fff;background:linear-gradient(180deg,transparent,rgba(0,0,0,.6));font-weight:700}
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: var(--texte);
+      gap: 10px;
+    }
 
-    footer{padding:36px 0;border-top:1px solid #e5e7eb;background:#fff;margin-top:40px}
-    .badges{display:flex;gap:10px;flex-wrap:wrap}
+    .logo img {
+      height: 42px;
+    }
 
-    /* WhatsApp en haut à droite */
-    .wa-float{position:fixed;right:18px;top:18px;display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:12px 16px;border-radius:999px;box-shadow:0 10px 25px rgba(0,0,0,.18);z-index:999;font-weight:800}
-    .wa-float svg{width:20px;height:20px}
+    nav a {
+      color: var(--accent);
+      margin: 0 10px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
 
-    @media (max-width:980px){.hero-grid{grid-template-columns:1fr}.cards{grid-template-columns:1fr 1fr}.gallery{grid-template-columns:1fr}}
+    nav a:hover {
+      color: #ffd700;
+    }
+
+    .btn {
+      background: linear-gradient(135deg, #d4af37, #b8860b);
+      color: #000;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: linear-gradient(135deg, #ffd700, #d4af37);
+      transform: scale(1.03);
+    }
+
+    section {
+      padding: 60px 20px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 16px;
+      margin: 20px auto;
+      max-width: 1100px;
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.08);
+    }
+
+    h1, h2 {
+      color: var(--accent);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #999;
+      background: rgba(0, 0, 0, 0.6);
+      font-size: 14px;
+    }
+
+    /* --- Lightbox --- */
+    .lb {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,.9);
+      display: none; align-items: center; justify-content: center;
+      z-index: 9999;
+    }
+    .lb.open { display: flex; }
+    .lb img { max-width: 92vw; max-height: 86vh; border-radius: 12px; }
+    .lb .close, .lb .prev, .lb .next {
+      position: absolute; color: #fff; background: rgba(255,255,255,.12);
+      border: 0; width: 44px; height: 44px; border-radius: 10px;
+      display: grid; place-items: center; font-size: 20px; cursor: pointer;
+      backdrop-filter: blur(4px);
+    }
+    .lb .close { top: 18px; right: 18px; }
+    .lb .prev { left: 18px; top: 50%; transform: translateY(-50%); }
+    .lb .next { right: 18px; top: 50%; transform: translateY(-50%); }
+    .lb .count { position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%); color:#fff; font-weight:700; }
+
+    /* --- Sliders --- */
+    .slider { background: rgba(255,255,255,0.05); border-radius: 12px; overflow: hidden; position: relative; }
+    .slider img { width: 100%; border-radius: 12px; display: block; cursor: zoom-in; box-shadow: 0 0 15px rgba(212,175,55,0.15); }
+    .slide { display: none; }
+    .slide.active { display: block; }
+    .dots { display: flex; justify-content: center; gap: 8px; padding: 10px; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; background: #666; cursor: pointer; }
+    .dot.active { background: var(--accent); }
   </style>
-
-  <!-- GA4 (remplace G-XXXXXXXXXX) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config','G-XXXXXXXXXX');</script>
 </head>
+
 <body>
   <header>
-    <div class="container nav">
-      <div class="logo">
-        <img src="assets/logo-jd-jrenov.png" alt="JD J’RÉNOV" />
-        <div>
-          <div style="font-weight:800;letter-spacing:.3px">JD J’RÉNOV</div>
-          <div class="muted" style="font-size:12px">Électricité & Aménagement intérieur</div>
-        </div>
+    <a href="./" class="logo">
+      <img src="assets/logo-jd-jrenov.png" alt="JD J’RÉNOV" />
+      <div>
+        <div style="font-weight:800;letter-spacing:.3px">JD J’RÉNOV</div>
+        <div class="muted" style="font-size:12px">Électricité & Aménagement intérieur</div>
       </div>
-      <nav style="display:flex;gap:18px">
-        <a href="#services">Services</a>
-        <a href="#realisations">Réalisations</a>
-        <a href="#contact">Contact</a>
-        <a class="btn" href="#devis">Devis gratuit</a>
-      </nav>
-    </div>
+    </a>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#realisations">Réalisations</a>
+      <a href="#contact">Contact</a>
+      <a class="btn" href="#devis">Devis gratuit</a>
+    </nav>
   </header>
 
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <span class="muted">⚡ Dépannage 7j/7 • Devis sous 24h</span>
-        <h1>Électricité & rénovation intérieure<br/>travaux soignés, délais respectés</h1>
-        <p class="muted">Tableaux électriques, mises en conformité, éclairage, prises & réseaux. Cloisons, doublages, faux-plafonds et finitions impeccables.</p>
-        <div style="display:flex;gap:10px;flex-wrap:wrap">
-          <a class="btn" href="#devis">Demander un devis</a>
-          <a class="btn alt" href="#services">Voir nos services</a>
-        </div>
-      </div>
-      <div class="card">
-        <h3>Interventions courantes</h3>
-        <ul style="margin:8px 0 0 18px;line-height:1.6">
-          <li><strong>Électricité générale</strong> — circuits, tableaux, différentiel, prises & éclairage.</li>
-          <li><strong>Dépannage</strong> — recherche de panne, remise en sécurité.</li>
-          <li><strong>Placo</strong> — cloisons, doublages, faux-plafonds, corniches lumineuses.</li>
-          <li><strong>Rénovation</strong> — cuisine, salle de bain, pièces à vivre.</li>
-        </ul>
-      </div>
-    </div>
+  <section id="hero">
+    <h1>Travaux soignés, délais respectés</h1>
+    <p>Électricité générale, aménagement intérieur et rénovation complète.</p>
   </section>
 
-  <section id="services" class="sect">
-    <div class="container">
-      <h2>Nos services</h2>
-      <div class="cards" style="margin-top:12px">
-        <div class="card"><h3>Électricité générale</h3><p class="muted">Tableaux, circuits, VMC, prises, éclairage intérieur/extérieur, domotique de base. Mise aux normes NF C 15-100.</p></div>
-        <div class="card"><h3>Dépannage & mise en sécurité</h3><p class="muted">Diagnostic, recherche de panne, remplacement urgent, protections différentielles.</p></div>
-        <div class="card"><h3>Placo & aménagement</h3><p class="muted">Cloisons, isolation, doublages, faux-plafonds, habillages pour spots LED.</p></div>
-      </div>
-    </div>
+  <section id="realisations">
+    <h2>Nos réalisations</h2>
+    <div class="slider" data-prefix="chantier1"></div>
+    <div class="slider" data-prefix="chantier2"></div>
+    <div class="slider" data-prefix="chantier3"></div>
+    <div class="slider" data-prefix="chantier4"></div>
   </section>
 
-  <section id="realisations" class="sect" style="padding-top:0">
-    <div class="container">
-      <h2>Réalisations</h2>
-      <p class="muted">Diaporamas automatiques. Passez la souris (ou touchez) pour mettre en pause.</p>
-
-      <div class="gallery" style="margin-top:12px">
-        <div class="card">
-          <h3>Chantier 1 — Salon et charpente apparentes</h3>
-          <div class="slider" data-prefix="chantier1"></div>
-        </div>
-        <div class="card">
-          <h3>Chantier 2 — Aménagement d’un salon de barbier (Le Barbier Rennais)</h3>
-          <div class="slider" data-prefix="chantier2"></div>
-        </div>
-        <div class="card">
-          <h3>Chantier 3 — Rénovation complète, électricité & aménagement</h3>
-          <div class="slider" data-prefix="chantier3"></div>
-        </div>
-        <div class="card">
-          <h3>Chantier 4 — Salle de bain & niches, pierre naturelle</h3>
-          <div class="slider" data-prefix="chantier4"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="devis" class="sect" style="background:linear-gradient(180deg,#0b1220,#0f172a);color:#fff">
-    <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:22px">
-      <div>
-        <h2>Demander un devis gratuit</h2>
-        <p style="opacity:.9">Décrivez votre besoin et recevez une estimation sous 24h (hors cas complexes). Intervention locale.</p>
-      </div>
-      <div>
-        <form action="https://formsubmit.co/contact.jdjrenov@gmail.com" method="POST" style="display:grid;gap:10px">
-          <input type="text" name="_honey" style="display:none">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_next" value="/?sent=1">
-          <input type="hidden" name="_subject" value="Demande de devis — JD J’RÉNOV">
-          <input type="hidden" name="_template" value="table">
-          <input name="Nom" placeholder="Nom" required />
-          <input name="Téléphone" placeholder="Téléphone" />
-          <input type="email" name="Email" placeholder="Email" required />
-          <textarea name="Message" placeholder="Décrivez vos travaux (surface, pièces, délais)…" style="min-height:120px" required></textarea>
-          <button class="btn" type="submit">Envoyer ma demande</button>
-          <div class="muted" style="color:#cbd5e1;font-size:12px">Nous ne partageons pas vos données.</div>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <footer id="contact">
-    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
-      <div class="logo"><img src="assets/logo-jd-jrenov.png" alt="JD J’RÉNOV"/><div><strong>JD J’RÉNOV</strong><br/><small class="muted">Électricité & Aménagement intérieur</small></div></div>
-      <div class="badges">
-        <small>📞 <a href="tel:+33652666837">06 52 66 68 37</a></small>
-        <small>✉️ <a href="mailto:contact.jdjrenov@gmail.com">contact.jdjrenov@gmail.com</a></small>
-        <small>📍 24 RUE DES BAS GASTS, 35240 MARCILLÉ-ROBERT</small>
-        <small>SIREN : 992 695 122 • SIRET : 992 695 122 00018 • TVA : FR11992695122</small>
-      </div>
-    </div>
+  <footer>
+    © JD J’RÉNOV — Électricité & Aménagement intérieur
   </footer>
 
-  <!-- Bouton WhatsApp (HAUT DROIT) -->
-  <a class="wa-float" href="https://wa.me/33652666837?text=Bonjour%20JD%20J%E2%80%99R%C3%89NOV%2C%20je%20souhaite%20un%20devis" target="_blank" rel="noopener" aria-label="Discuter sur WhatsApp">
-    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="currentColor" d="M19.11 17.2c-.28-.14-1.62-.8-1.87-.9-.25-.09-.43-.14-.62.14-.18.28-.71.88-.87 1.06-.16.18-.32.2-.6.07-.28-.14-1.18-.44-2.25-1.41-.83-.74-1.39-1.66-1.55-1.94-.16-.28-.02-.43.12-.57.12-.12.28-.32.41-.48.14-.16.18-.28.28-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.5-.85-2.05-.22-.53-.45-.46-.62-.46-.16 0-.34-.02-.53-.02-.18 0-.48.07-.73.34-.25.28-.96.94-.96 2.3s.98 2.66 1.12 2.84c.14.18 1.93 2.95 4.68 4.02.65.28 1.16.45 1.56.57.65.21 1.24.18 1.7.11.52-.08 1.62-.66 1.85-1.3.23-.64.23-1.19.16-1.3-.07-.11-.25-.18-.53-.32z"/></svg>
-    WhatsApp
-  </a>
+  <!-- Lightbox -->
+  <div class="lb" id="lb" aria-modal="true" role="dialog">
+    <button class="close" aria-label="Fermer">✕</button>
+    <button class="prev" aria-label="Précédent">‹</button>
+    <img id="lb-img" alt="Photo chantier en grand">
+    <button class="next" aria-label="Suivant">›</button>
+    <div class="count" id="lb-count"></div>
+  </div>
 
   <script>
-    // -------- Carrousels auto (chargent toutes les images existantes chantierX-1..30) --------
+    // -------- Lightbox --------
+    const LB = {
+      el: null, img: null, count: null, prev: null, next: null, close: null,
+      list: [], idx: 0,
+      open(list, startIdx=0){ this.list=list; this.idx=startIdx; this.el.classList.add('open'); this.render(); },
+      closeBox(){ this.el.classList.remove('open'); },
+      render(){ this.img.src=this.list[this.idx]; this.count.textContent=(this.idx+1)+' / '+this.list.length; },
+      nextImg(){ this.idx=(this.idx+1)%this.list.length; this.render(); },
+      prevImg(){ this.idx=(this.idx-1+this.list.length)%this.list.length; this.render(); },
+      init(){
+        this.el=document.getElementById('lb'); this.img=document.getElementById('lb-img'); this.count=document.getElementById('lb-count');
+        this.prev=this.el.querySelector('.prev'); this.next=this.el.querySelector('.next'); this.close=this.el.querySelector('.close');
+        this.close.addEventListener('click',()=>this.closeBox());
+        this.prev.addEventListener('click',()=>this.prevImg());
+        this.next.addEventListener('click',()=>this.nextImg());
+        this.el.addEventListener('click',e=>{ if(e.target===this.el) this.closeBox(); });
+        window.addEventListener('keydown',e=>{
+          if(!this.el.classList.contains('open')) return;
+          if(e.key==='Escape') this.closeBox();
+          if(e.key==='ArrowRight') this.nextImg();
+          if(e.key==='ArrowLeft') this.prevImg();
+        });
+      }
+    };
+    LB.init();
+
+    // -------- Carrousels auto --------
     function buildCarousel(el){
-      const prefix = el.dataset.prefix;         // ex: 'chantier1'
-      const max = 30;                            // essaie jusqu'à 30 images
-      const urls = [];
-      let i = 1;
-      let pending = 0, tried = 0;
-
-      function done(){
-        if(urls.length === 0){
-          el.innerHTML = '<div class="cap">Aucune image trouvée</div>';
-          return;
-        }
-        // créer les slides
-        urls.forEach((src, idx)=>{
-          const s = document.createElement('div');
-          s.className = 'slide' + (idx===0 ? ' active' : '');
-          const im = document.createElement('img');
-          im.src = src; im.alt = 'Photo ' + (idx+1);
-          s.appendChild(im);
-          el.appendChild(s);
-        });
-        // dots
-        const dotsWrap = document.createElement('div'); dotsWrap.className = 'dots';
-        urls.forEach((_, idx)=>{
-          const d = document.createElement('div'); d.className = 'dot' + (idx===0 ? ' active' : '');
-          d.addEventListener('click', ()=>{ go(idx, true); });
-          dotsWrap.appendChild(d);
-        });
-        el.appendChild(dotsWrap);
-
-        // animation
-        const slides = Array.from(el.querySelectorAll('.slide'));
-        const dots = Array.from(el.querySelectorAll('.dot'));
-        let k = 0, playing = true, t;
-
-        function render(){
-          slides.forEach((s, i)=> s.classList.toggle('active', i===k));
-          dots.forEach((d, i)=> d.classList.toggle('active', i===k));
-        }
-        function go(n, stop=false){ k = (n + slides.length) % slides.length; render(); if(stop){ playing=false; resetTimer(); } }
-        function tick(){ if(playing){ go(k+1); } }
-        function resetTimer(){ clearInterval(t); t = setInterval(tick, 3200); }
-        el.addEventListener('mouseenter', ()=>{ playing=false; });
-        el.addEventListener('mouseleave', ()=>{ playing=true; });
-        // Swipe
-        let x0=null; el.addEventListener('pointerdown', e=>x0=e.clientX);
-        el.addEventListener('pointerup', e=>{ if(x0==null) return; const dx=e.clientX-x0; if(Math.abs(dx)>40) go(k+(dx<0?1:-1), true); x0=null; });
-
-        resetTimer(); render();
-      }
-
-      function tryLoad(n){
-        const src = `assets/${prefix}-${n}.jpg`;
-        const im = new Image(); pending++; tried++;
-        im.onload = ()=>{ urls.push(src); pending--; next(); };
-        im.onerror = ()=>{ pending--; next(); };
-        im.src = src;
-      }
-      function next(){
-        if(tried >= max && pending === 0){ done(); return; }
-        if(tried < max){ tryLoad(tried+1); }
-      }
-      // start pipeline
-      for(let c=0;c<5;c++) next(); // quelques tentatives en parallèle pour aller vite
+      const prefix=el.dataset.prefix;
+      const urls=[];
+      for(let i=1;i<=20;i++){urls.push(`assets/${prefix}-${i}.jpg`);}
+      const validUrls=urls.filter(u=>!!u);
+      validUrls.forEach((src,i)=>{
+        const s=document.createElement('div'); s.className='slide'+(i===0?' active':'');
+        const im=document.createElement('img'); im.src=src; im.alt=`${prefix} photo ${i+1}`;
+        im.addEventListener('click',()=>LB.open(validUrls,i));
+        s.appendChild(im); el.appendChild(s);
+      });
+      const slides=[...el.querySelectorAll('.slide')];
+      const dotsWrap=document.createElement('div'); dotsWrap.className='dots';
+      validUrls.forEach((_,i)=>{const d=document.createElement('div');d.className='dot'+(i===0?' active':'');d.addEventListener('click',()=>go(i));dotsWrap.appendChild(d);});
+      el.appendChild(dotsWrap);
+      const dots=[...dotsWrap.children];
+      let k=0;function render(){slides.forEach((s,i)=>s.classList.toggle('active',i===k));dots.forEach((d,i)=>d.classList.toggle('active',i===k));}
+      function go(n){k=(n+slides.length)%slides.length;render();}
+      setInterval(()=>{k=(k+1)%slides.length;render();},3000);
+      render();
     }
-
     document.querySelectorAll('.slider').forEach(buildCarousel);
-
-    // Toast après FormSubmit (?sent=1)
-    if (new URLSearchParams(location.search).get('sent') === '1') {
-      const ok = document.createElement('div');
-      ok.textContent = 'Merci ! Votre demande a bien été envoyée.';
-      ok.style.cssText = 'position:fixed;left:50%;transform:translateX(-50%);bottom:18px;background:#16a34a;color:#fff;padding:12px 16px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.15);z-index:1000';
-      document.body.appendChild(ok); setTimeout(()=>ok.remove(), 5000);
-      history.replaceState({}, '', location.pathname);
-    }
   </script>
 </body>
 </html>
